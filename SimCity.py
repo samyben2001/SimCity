@@ -153,7 +153,7 @@ def print_map():
     os.system('cls')
     print(Fore.YELLOW + "Tour: " + str(turn) + Fore.CYAN)
     print('''
-"ZQSD" => Déplacer le personnage     |    "B" => Construire un batiument''')
+"ZQSD" => Déplacer le personnage     |    "B" => Construire/Améliorer un batiument''')
     for y, v in enumerate(map):
         print()
         for x ,val in enumerate(v):
