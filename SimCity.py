@@ -436,4 +436,3 @@ while not exit:
     else:
         print(Fore.RED + "\nVOUS ÊTES MORT!")
         exit = True
-    
