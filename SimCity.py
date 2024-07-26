@@ -166,24 +166,36 @@ def check_next_player_position(x, y):
     global post_print_message 
     
     if map[y][x] == WOODS["Wood1"]["icon"]: 
-        player["woodRessources"] += round(WOODS["Wood1"]["value"] * player["woodBonus"])
-        map_infos["ressources_on_map"] -= 1
-        post_print_message = str(WOODS["Wood1"]["value"]) + " Wood collected!"
-        
+        if player["woodRessources"] < player["maxWoodRessources"]:
+            player["woodRessources"] += round(WOODS["Wood1"]["value"] * player["woodBonus"])
+            map_infos["ressources_on_map"] -= 1
+            post_print_message = str(WOODS["Wood1"]["value"]) + " Wood collected!"
+        else:
+            post_print_message = "Vous ne pouvez pas ramasser plus de ressources de bois !"
+            
     elif map[y][x] == WOODS["Wood2"]["icon"]:
-        player["woodRessources"] += round(WOODS["Wood2"]["value"] * player["woodBonus"])
-        map_infos["ressources_on_map"] -= 1
-        post_print_message = str(WOODS["Wood2"]["value"]) + " Wood collected!"
+        if player["woodRessources"] < player["maxWoodRessources"]:
+            player["woodRessources"] += round(WOODS["Wood2"]["value"] * player["woodBonus"])
+            map_infos["ressources_on_map"] -= 1
+            post_print_message = str(WOODS["Wood2"]["value"]) + " Wood collected!"
+        else:
+            post_print_message = "Vous ne pouvez pas ramasser plus de ressources de bois !"
         
     elif map[y][x] == STONES["Stone1"]["icon"]:
-        player["stoneRessources"] += round(STONES["Stone1"]["value"] * player["stoneBonus"])
-        map_infos["ressources_on_map"] -= 1
-        post_print_message = str(STONES["Stone1"]["value"]) + " Stone collected!"
+        if player["stoneRessources"] < player["maxStoneRessources"]:
+            player["stoneRessources"] += round(STONES["Stone1"]["value"] * player["stoneBonus"])
+            map_infos["ressources_on_map"] -= 1
+            post_print_message = str(STONES["Stone1"]["value"]) + " Stone collected!"
+        else: 
+            post_print_message = "Vous ne pouvez pas ramasser plus de ressources de pierre !"
         
     elif map[y][x] == STONES["Stone2"]["icon"]:
-        player["stoneRessources"] += round(STONES["Stone2"]["value"] * player["stoneBonus"])
-        map_infos["ressources_on_map"] -= 1
-        post_print_message = str(STONES["Stone2"]["value"]) + " Stone collected!"
+        if player["stoneRessources"] < player["maxStoneRessources"]:
+            player["stoneRessources"] += round(STONES["Stone2"]["value"] * player["stoneBonus"])
+            map_infos["ressources_on_map"] -= 1
+            post_print_message = str(STONES["Stone2"]["value"]) + " Stone collected!"
+        else: 
+            post_print_message = "Vous ne pouvez pas ramasser plus de ressources de pierre !"
         
     elif map[y][x] in (BATS["Houses"]["House"]["icon"], BATS["Houses"]["House2"]["icon"], BATS["Houses"]["House3"]["icon"]):
         if player["stamina"] < player["maxStamina"]:
